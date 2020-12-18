@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Главная страница</title>
+</head>
+<body>
+    <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+  <p class="h5 my-0 me-md-auto fw-normal">Страница для добавления котиков</p>
+</header>
+ <h1>Мои котики</h1>
+ {% for el in cats %}
+     <div class="alert alert-warning mt-2">
+        <h3>Имя: {{ el.name }}</h3>
+        <p>Возраст: {{ el.age }}</p>
+        <p>Цвет: {{ el.color }}</p>
+     </div>
+ {% endfor %}
+</body>
+</html>
