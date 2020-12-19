@@ -7,15 +7,35 @@
 </head>
 <body>
     <header class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-  <p class="h5 my-0 me-md-auto fw-normal">Страница для добавления котиков</p>
+  <p class="h5 my-0 me-md-auto fw-normal">Страница для просмотра котиков</p>
+
 </header>
  <h1>Мои котики</h1>
- {% for el in cats %}
-     <div class="alert alert-warning mt-2">
-        <h3>Имя: {{ el.name }}</h3>
-        <p>Возраст: {{ el.age }}</p>
-        <p>Цвет: {{ el.color }}</p>
-     </div>
+ {% if cats %}
+    {% for el in cats %}
+        <div class="col">
+      <div class="card mb-4 shadow-sm">
+      <div class="card-header">
+        <h4 class="my-0 fw-normal">{{ el.name }}</h4>
+      </div>
+      <div class="card-body">
+        <ul class="list-unstyled mt-3 mb-4">
+          <li>Возраст: {{ el.age }}</li>
+          <li>Цвет: {{ el.color }}</li>
+            <a class="btn btn-outline-primary" href="delete/{{el.name}}">Удалить</a>
+        </ul>
+      </div>
+    </div>
+    </div>
+{#     <div class="alert alert-warning mt-2">#}
+{#        <h3>Имя: {{ el.name }}</h3>#}
+{#        <p>Возраст: {{ el.age }}</p>#}
+{#        <p>Цвет: {{ el.color }}</p>#}
+{#     </div>#}
  {% endfor %}
+    {% else %}
+    <p>Котиков нету</p>
+{% endif %}
+<a class="btn btn-outline-primary" style="margin:10px; " href="{% url 'create' %}">Добавить</a>
 </body>
 </html>
